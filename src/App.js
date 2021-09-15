@@ -1,5 +1,12 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
+import { Routes, Route } from 'react-router-dom';
+import {
+  home,
+  about,
+  events,
+  contact
+} from "./pages"
 
 // https://api.github.com/users/leeton1412
 
@@ -26,6 +33,12 @@ function App({login}) {
       <img alt={data.login} src={data.avatar_url}/>
       <h1>{data.login}</h1>
       <button>{data.repos_url}</button>
+    <Routes>
+      <Route path="/" element={<home />} />
+      <Route path="/about" element={<about />} />
+      <Route path="/events" element={<events />} />
+      <Route path="/contact" element={<contact />} />
+      </Routes>
       </div>
 }
 
